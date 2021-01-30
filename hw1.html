@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hw1</title>
+	<style type="text/css">
+		td{
+			border: 1px solid gray;
+		}
+		.btns{
+			width: 100%;
+		}
+		table{
+			padding: 2px;
+			background-color: #e032e3
+		}
+		button{
+			background-color: lightgreen;
+		}
+
+	</style>
+</head>
+<body>
+	<div style="max-width: 200px">
+		<table>
+			<tr>
+				<td>
+					X:
+				</td>
+				<td class="btns">
+					<input type="number" name="" id="xValue">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Y:
+				</td>
+				<td>
+					<input type="number" name="" id="yValue">
+				</td>
+			</tr>
+			<tr>
+
+				<td colspan = "2" style="text-align: center;">
+					<button>+</button>
+					<button>-</button>
+					<button>*</button>
+					<button>/</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Ans
+				</td>
+				<td>
+					<input type="number" name="" id="ansValue" disabled="true" value="2">
+				</td>
+			</tr>
+		</table>
+	</div>
+<script type="text/javascript">
+	let btns = document.getElementsByTagName('button')
+	let xValue = document.getElementById("xValue")
+	let yValue = document.getElementById("yValue")
+	let ansValue = document.getElementById("ansValue")
+	let math = {
+		'+': (x,y) =>{
+			return parseInt(x) + parseInt(y);
+		},
+		'-': (x,y) =>{
+			return x - y;
+		},
+		'*' : (x,y)=>{
+			return x * y;
+		},
+		'/' : (x,y)=>{
+			return x / y;
+		}
+	}
+	for(let x = 0;x < btns.length;x++){
+		btns[x].addEventListener("click",()=>{
+			ansValue.value = math[btns[x].innerText](xValue.value,yValue.value)
+		})
+	}
+</script>
+</body>
+</html>
